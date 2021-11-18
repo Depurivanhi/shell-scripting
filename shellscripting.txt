@@ -1,0 +1,161 @@
+SHELL SCRIPTING PROGRAMS:
+************************
+if else condition
+*****************
+#!/bin/bash
+n=10
+if [ $n -lt 10 ];
+then
+echo "It is a one digit number"
+else
+echo "It is a two digit number"
+fi
+output
+******
+$ #!/bin/bash
+$ vi vanhi.sh
+$ ./vanhi.sh
+-bash: ./vanhi.sh: Permission denied
+$ chmod u+x vanhi.sh
+$ ./vanhi.sh
+./vanhi.sh: line 2: [10: command not found
+it is a two digit number
+
+else if and else condition
+**************************
+#!/bin/bash
+
+echo "Enter your lucky number"
+read n
+
+if [ $n -eq 101 ];
+then
+echo "You got 1st prize"
+elif [ $n -eq 510 ];
+then
+echo "You got 2nd prize"
+elif [ $n -eq 999 ];
+then
+echo "You got 3rd prize"
+
+else
+echo "Sorry, try for the next time"
+fi
+output
+******
+$ #!/bin/bash
+$ vi lucky.sh
+$ ./lucky.sh
+-bash: ./lucky.sh: Permission denied
+$ chmod u+x lucky.sh
+$ ./lucky.sh
+enter your lucky number
+101
+you got 1st prize
+$ 
+
+while loop
+**********
+i=1
+sum=0
+while [ $1 -le 100 ]; do
+ sum='expr $sum + $i'
+ i='expr $i + 1'
+done
+echo The sum is $sum
+output
+******                                                                                 
+$ #!/bin/bash
+$ vi whileloop.sh
+$ ./whileloop.sh
+-bash: ./whileloop.sh: Permission denied
+$ chmod u+x whileloop.sh
+$ ./whileloop.sh
+./whileloop.sh: line 3: [: -le: unary operator expected
+The sum is 0
+$
+
+for loop
+********
+#!/bin/bash
+for i in 1 2 3
+do
+ for j in 1 2 3
+ do
+  value='expr $i\*$j'
+  echo -n "$value"
+ done
+ echo
+done
+output
+******
+$ #!/bin/bash
+$ vi forloop.sh
+$ chmod u+x forloop.sh
+$ ./forloop.sh
+expr $i\*$jexpr $i\*$jexpr $i\*$j
+expr $i\*$jexpr $i\*$jexpr $i\*$j
+expr $i\*$jexpr $i\*$jexpr $i\*$j
+$ 
+
+case statement
+**************
+#!/bin/bash
+
+echo "Enter your lucky number"
+read n
+case $n in
+101)
+echo echo "You got 1st prize" ;;
+510)
+echo "You got 2nd prize" ;;
+999)
+echo "You got 3rd prize" ;;
+*)
+echo "Sorry, try for the next time" ;;
+esac
+output
+******
+$ #!/bin/bash
+$ vi case.sh
+$ chmod u+x case.sh
+$ ./case.sh
+enter your lucky number
+999
+you got third prize
+$
+for loop
+********
+#!/bin/bash
+smallest=10000
+for i in 5 8 19 8 7 3; do
+ if test $i -lt $smallest; then
+    smallest=$i
+ fi
+done
+echo $smallest
+
+output
+******
+$ vi vanhi.sh
+$ chmod u+x vanhi.sh
+$ ./vanhi.sh
+3
+$
+
+using string
+************
+string1="ubuntu"
+string2="pit"
+string=$string1$string2
+echo "$string is a great resource for linux begineers."
+
+output
+******
+$ vi chiku.sh
+$ chmod u+x chiku.sh
+$ ./chiku.sh
+ubuntupit is a great resource for linux begineers.
+$ 
+
+
